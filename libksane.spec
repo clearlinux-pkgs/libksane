@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : libksane
-Version  : 18.12.2
-Release  : 1
-URL      : https://download.kde.org/stable/applications/18.12.2/src/libksane-18.12.2.tar.xz
-Source0  : https://download.kde.org/stable/applications/18.12.2/src/libksane-18.12.2.tar.xz
-Source99 : https://download.kde.org/stable/applications/18.12.2/src/libksane-18.12.2.tar.xz.sig
+Version  : 18.12.3
+Release  : 2
+URL      : https://download.kde.org/stable/applications/18.12.3/src/libksane-18.12.3.tar.xz
+Source0  : https://download.kde.org/stable/applications/18.12.3/src/libksane-18.12.3.tar.xz
+Source99 : https://download.kde.org/stable/applications/18.12.3/src/libksane-18.12.3.tar.xz.sig
 Summary  : An image scanning library
 Group    : Development/Tools
 License  : BSD-3-Clause GPL-2.0 LGPL-2.1
@@ -76,14 +76,14 @@ locales components for the libksane package.
 
 
 %prep
-%setup -q -n libksane-18.12.2
+%setup -q -n libksane-18.12.3
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1555256086
+export SOURCE_DATE_EPOCH=1555298795
 mkdir -p clr-build
 pushd clr-build
 %cmake ..
@@ -91,7 +91,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1555256086
+export SOURCE_DATE_EPOCH=1555298795
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libksane
 cp COPYING %{buildroot}/usr/share/package-licenses/libksane/COPYING
