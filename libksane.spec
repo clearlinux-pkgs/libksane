@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : libksane
-Version  : 19.08.2
-Release  : 11
-URL      : https://download.kde.org/stable/applications/19.08.2/src/libksane-19.08.2.tar.xz
-Source0  : https://download.kde.org/stable/applications/19.08.2/src/libksane-19.08.2.tar.xz
-Source1 : https://download.kde.org/stable/applications/19.08.2/src/libksane-19.08.2.tar.xz.sig
+Version  : 19.08.3
+Release  : 12
+URL      : https://download.kde.org/stable/applications/19.08.3/src/libksane-19.08.3.tar.xz
+Source0  : https://download.kde.org/stable/applications/19.08.3/src/libksane-19.08.3.tar.xz
+Source1 : https://download.kde.org/stable/applications/19.08.3/src/libksane-19.08.3.tar.xz.sig
 Summary  : An image scanning library
 Group    : Development/Tools
 License  : BSD-3-Clause GPL-2.0 LGPL-2.1
@@ -77,14 +77,14 @@ locales components for the libksane package.
 
 
 %prep
-%setup -q -n libksane-19.08.2
+%setup -q -n libksane-19.08.3
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1570775273
+export SOURCE_DATE_EPOCH=1573190965
 mkdir -p clr-build
 pushd clr-build
 # -Werror is for werrorists
@@ -101,12 +101,12 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1570775273
+export SOURCE_DATE_EPOCH=1573190965
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libksane
-cp COPYING %{buildroot}/usr/share/package-licenses/libksane/COPYING
-cp COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/libksane/COPYING-CMAKE-SCRIPTS
-cp COPYING.LIB %{buildroot}/usr/share/package-licenses/libksane/COPYING.LIB
+cp %{_builddir}/libksane-19.08.3/COPYING %{buildroot}/usr/share/package-licenses/libksane/133efad5329acf364135c569ac01ec084c3d4647
+cp %{_builddir}/libksane-19.08.3/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/libksane/ff3ed70db4739b3c6747c7f624fe2bad70802987
+cp %{_builddir}/libksane-19.08.3/COPYING.LIB %{buildroot}/usr/share/package-licenses/libksane/9a1929f4700d2407c70b507b3b2aaf6226a9543c
 pushd clr-build
 %make_install
 popd
@@ -140,9 +140,9 @@ popd
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/libksane/COPYING
-/usr/share/package-licenses/libksane/COPYING-CMAKE-SCRIPTS
-/usr/share/package-licenses/libksane/COPYING.LIB
+/usr/share/package-licenses/libksane/133efad5329acf364135c569ac01ec084c3d4647
+/usr/share/package-licenses/libksane/9a1929f4700d2407c70b507b3b2aaf6226a9543c
+/usr/share/package-licenses/libksane/ff3ed70db4739b3c6747c7f624fe2bad70802987
 
 %files locales -f libksane.lang
 %defattr(-,root,root,-)
