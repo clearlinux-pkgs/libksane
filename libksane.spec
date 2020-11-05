@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : libksane
-Version  : 20.08.2
-Release  : 22
-URL      : https://download.kde.org/stable/release-service/20.08.2/src/libksane-20.08.2.tar.xz
-Source0  : https://download.kde.org/stable/release-service/20.08.2/src/libksane-20.08.2.tar.xz
-Source1  : https://download.kde.org/stable/release-service/20.08.2/src/libksane-20.08.2.tar.xz.sig
+Version  : 20.08.3
+Release  : 23
+URL      : https://download.kde.org/stable/release-service/20.08.3/src/libksane-20.08.3.tar.xz
+Source0  : https://download.kde.org/stable/release-service/20.08.3/src/libksane-20.08.3.tar.xz
+Source1  : https://download.kde.org/stable/release-service/20.08.3/src/libksane-20.08.3.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-3-Clause GPL-2.0 LGPL-2.1
@@ -81,15 +81,15 @@ locales components for the libksane package.
 
 
 %prep
-%setup -q -n libksane-20.08.2
-cd %{_builddir}/libksane-20.08.2
+%setup -q -n libksane-20.08.3
+cd %{_builddir}/libksane-20.08.3
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1602647252
+export SOURCE_DATE_EPOCH=1604615488
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -105,12 +105,12 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1602647252
+export SOURCE_DATE_EPOCH=1604615488
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libksane
-cp %{_builddir}/libksane-20.08.2/COPYING %{buildroot}/usr/share/package-licenses/libksane/133efad5329acf364135c569ac01ec084c3d4647
-cp %{_builddir}/libksane-20.08.2/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/libksane/ff3ed70db4739b3c6747c7f624fe2bad70802987
-cp %{_builddir}/libksane-20.08.2/COPYING.LIB %{buildroot}/usr/share/package-licenses/libksane/9a1929f4700d2407c70b507b3b2aaf6226a9543c
+cp %{_builddir}/libksane-20.08.3/COPYING %{buildroot}/usr/share/package-licenses/libksane/133efad5329acf364135c569ac01ec084c3d4647
+cp %{_builddir}/libksane-20.08.3/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/libksane/ff3ed70db4739b3c6747c7f624fe2bad70802987
+cp %{_builddir}/libksane-20.08.3/COPYING.LIB %{buildroot}/usr/share/package-licenses/libksane/9a1929f4700d2407c70b507b3b2aaf6226a9543c
 pushd clr-build
 %make_install
 popd
