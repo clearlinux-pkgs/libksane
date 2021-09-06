@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : libksane
-Version  : 21.04.2
-Release  : 28
-URL      : https://download.kde.org/stable/release-service/21.04.2/src/libksane-21.04.2.tar.xz
-Source0  : https://download.kde.org/stable/release-service/21.04.2/src/libksane-21.04.2.tar.xz
-Source1  : https://download.kde.org/stable/release-service/21.04.2/src/libksane-21.04.2.tar.xz.sig
+Version  : 21.08.1
+Release  : 29
+URL      : https://download.kde.org/stable/release-service/21.08.1/src/libksane-21.08.1.tar.xz
+Source0  : https://download.kde.org/stable/release-service/21.08.1/src/libksane-21.08.1.tar.xz
+Source1  : https://download.kde.org/stable/release-service/21.08.1/src/libksane-21.08.1.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-3-Clause LGPL-2.1 LGPL-3.0
@@ -81,37 +81,38 @@ locales components for the libksane package.
 
 
 %prep
-%setup -q -n libksane-21.04.2
-cd %{_builddir}/libksane-21.04.2
+%setup -q -n libksane-21.08.1
+cd %{_builddir}/libksane-21.08.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1623395125
+export SOURCE_DATE_EPOCH=1630900986
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
-export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
+export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=auto "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
+export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=auto "
 %cmake ..
 make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1623395125
+export SOURCE_DATE_EPOCH=1630900986
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libksane
-cp %{_builddir}/libksane-21.04.2/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/libksane/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c
-cp %{_builddir}/libksane-21.04.2/LICENSES/LGPL-2.1-only.txt %{buildroot}/usr/share/package-licenses/libksane/81b58c89ceef8e9f8bd5d00a287edbd15f9d3567
-cp %{_builddir}/libksane-21.04.2/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/libksane/e458941548e0864907e654fa2e192844ae90fc32
-cp %{_builddir}/libksane-21.04.2/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/libksane/e458941548e0864907e654fa2e192844ae90fc32
+cp %{_builddir}/libksane-21.08.1/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/libksane/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c
+cp %{_builddir}/libksane-21.08.1/LICENSES/LGPL-2.1-only.txt %{buildroot}/usr/share/package-licenses/libksane/81b58c89ceef8e9f8bd5d00a287edbd15f9d3567
+cp %{_builddir}/libksane-21.08.1/LICENSES/LGPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/libksane/19d98e1b6f8ef12849ea4012a052d3907f336c91
+cp %{_builddir}/libksane-21.08.1/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/libksane/e458941548e0864907e654fa2e192844ae90fc32
+cp %{_builddir}/libksane-21.08.1/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/libksane/e458941548e0864907e654fa2e192844ae90fc32
 pushd clr-build
 %make_install
 popd
@@ -128,8 +129,12 @@ popd
 
 %files dev
 %defattr(-,root,root,-)
+/usr/include/KF5/KSane/KSaneCore
+/usr/include/KF5/KSane/KSaneOption
 /usr/include/KF5/KSane/KSaneWidget
 /usr/include/KF5/KSane/ksane_export.h
+/usr/include/KF5/KSane/ksanecore.h
+/usr/include/KF5/KSane/ksaneoption.h
 /usr/include/KF5/KSane/ksanewidget.h
 /usr/include/KF5/ksane_version.h
 /usr/lib64/cmake/KF5Sane/KF5SaneConfig.cmake
@@ -140,11 +145,12 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
-/usr/lib64/libKF5Sane.so.21.04.2
+/usr/lib64/libKF5Sane.so.21.08.1
 /usr/lib64/libKF5Sane.so.5
 
 %files license
 %defattr(0644,root,root,0755)
+/usr/share/package-licenses/libksane/19d98e1b6f8ef12849ea4012a052d3907f336c91
 /usr/share/package-licenses/libksane/81b58c89ceef8e9f8bd5d00a287edbd15f9d3567
 /usr/share/package-licenses/libksane/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c
 /usr/share/package-licenses/libksane/e458941548e0864907e654fa2e192844ae90fc32
