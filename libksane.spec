@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : libksane
-Version  : 21.12.3
-Release  : 36
-URL      : https://download.kde.org/stable/release-service/21.12.3/src/libksane-21.12.3.tar.xz
-Source0  : https://download.kde.org/stable/release-service/21.12.3/src/libksane-21.12.3.tar.xz
-Source1  : https://download.kde.org/stable/release-service/21.12.3/src/libksane-21.12.3.tar.xz.sig
+Version  : 22.04.0
+Release  : 37
+URL      : https://download.kde.org/stable/release-service/22.04.0/src/libksane-22.04.0.tar.xz
+Source0  : https://download.kde.org/stable/release-service/22.04.0/src/libksane-22.04.0.tar.xz
+Source1  : https://download.kde.org/stable/release-service/22.04.0/src/libksane-22.04.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-3-Clause LGPL-2.1 LGPL-3.0
@@ -24,7 +24,6 @@ BuildRequires : ki18n-dev
 BuildRequires : ktextwidgets-dev
 BuildRequires : kwallet-dev
 BuildRequires : kwidgetsaddons-dev
-BuildRequires : qtbase-dev mesa-dev
 BuildRequires : sane-backends-dev
 
 %description
@@ -81,15 +80,15 @@ locales components for the libksane package.
 
 
 %prep
-%setup -q -n libksane-21.12.3
-cd %{_builddir}/libksane-21.12.3
+%setup -q -n libksane-22.04.0
+cd %{_builddir}/libksane-22.04.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1646519912
+export SOURCE_DATE_EPOCH=1650729911
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -105,14 +104,14 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1646519912
+export SOURCE_DATE_EPOCH=1650729911
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libksane
-cp %{_builddir}/libksane-21.12.3/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/libksane/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c
-cp %{_builddir}/libksane-21.12.3/LICENSES/LGPL-2.1-only.txt %{buildroot}/usr/share/package-licenses/libksane/81b58c89ceef8e9f8bd5d00a287edbd15f9d3567
-cp %{_builddir}/libksane-21.12.3/LICENSES/LGPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/libksane/19d98e1b6f8ef12849ea4012a052d3907f336c91
-cp %{_builddir}/libksane-21.12.3/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/libksane/e458941548e0864907e654fa2e192844ae90fc32
-cp %{_builddir}/libksane-21.12.3/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/libksane/e458941548e0864907e654fa2e192844ae90fc32
+cp %{_builddir}/libksane-22.04.0/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/libksane/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c
+cp %{_builddir}/libksane-22.04.0/LICENSES/LGPL-2.1-only.txt %{buildroot}/usr/share/package-licenses/libksane/81b58c89ceef8e9f8bd5d00a287edbd15f9d3567
+cp %{_builddir}/libksane-22.04.0/LICENSES/LGPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/libksane/19d98e1b6f8ef12849ea4012a052d3907f336c91
+cp %{_builddir}/libksane-22.04.0/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/libksane/e458941548e0864907e654fa2e192844ae90fc32
+cp %{_builddir}/libksane-22.04.0/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/libksane/e458941548e0864907e654fa2e192844ae90fc32
 pushd clr-build
 %make_install
 popd
@@ -145,7 +144,7 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
-/usr/lib64/libKF5Sane.so.21.12.3
+/usr/lib64/libKF5Sane.so.22.04.0
 /usr/lib64/libKF5Sane.so.5
 
 %files license
