@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : libksane
-Version  : 22.08.1
-Release  : 42
-URL      : https://download.kde.org/stable/release-service/22.08.1/src/libksane-22.08.1.tar.xz
-Source0  : https://download.kde.org/stable/release-service/22.08.1/src/libksane-22.08.1.tar.xz
-Source1  : https://download.kde.org/stable/release-service/22.08.1/src/libksane-22.08.1.tar.xz.sig
+Version  : 22.08.2
+Release  : 43
+URL      : https://download.kde.org/stable/release-service/22.08.2/src/libksane-22.08.2.tar.xz
+Source0  : https://download.kde.org/stable/release-service/22.08.2/src/libksane-22.08.2.tar.xz
+Source1  : https://download.kde.org/stable/release-service/22.08.2/src/libksane-22.08.2.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : CC0-1.0 LGPL-2.1 LGPL-3.0
@@ -81,15 +81,15 @@ locales components for the libksane package.
 
 
 %prep
-%setup -q -n libksane-22.08.1
-cd %{_builddir}/libksane-22.08.1
+%setup -q -n libksane-22.08.2
+cd %{_builddir}/libksane-22.08.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1662787208
+export SOURCE_DATE_EPOCH=1665762196
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -105,14 +105,14 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1662787208
+export SOURCE_DATE_EPOCH=1665762196
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libksane
-cp %{_builddir}/libksane-%{version}/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/libksane/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0
-cp %{_builddir}/libksane-%{version}/LICENSES/LGPL-2.1-only.txt %{buildroot}/usr/share/package-licenses/libksane/81b58c89ceef8e9f8bd5d00a287edbd15f9d3567
-cp %{_builddir}/libksane-%{version}/LICENSES/LGPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/libksane/b9c8ec07abddb6bfbe08cb87aa8f68c2c2a1152f
-cp %{_builddir}/libksane-%{version}/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/libksane/e458941548e0864907e654fa2e192844ae90fc32
-cp %{_builddir}/libksane-%{version}/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/libksane/e458941548e0864907e654fa2e192844ae90fc32
+cp %{_builddir}/libksane-%{version}/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/libksane/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0 || :
+cp %{_builddir}/libksane-%{version}/LICENSES/LGPL-2.1-only.txt %{buildroot}/usr/share/package-licenses/libksane/81b58c89ceef8e9f8bd5d00a287edbd15f9d3567 || :
+cp %{_builddir}/libksane-%{version}/LICENSES/LGPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/libksane/b9c8ec07abddb6bfbe08cb87aa8f68c2c2a1152f || :
+cp %{_builddir}/libksane-%{version}/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/libksane/e458941548e0864907e654fa2e192844ae90fc32 || :
+cp %{_builddir}/libksane-%{version}/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/libksane/e458941548e0864907e654fa2e192844ae90fc32 || :
 pushd clr-build
 %make_install
 popd
@@ -141,7 +141,7 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
-/usr/lib64/libKF5Sane.so.22.08.1
+/usr/lib64/libKF5Sane.so.22.08.2
 /usr/lib64/libKF5Sane.so.5
 
 %files license
