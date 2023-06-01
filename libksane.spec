@@ -7,7 +7,7 @@
 #
 Name     : libksane
 Version  : 23.04.1
-Release  : 51
+Release  : 52
 URL      : https://download.kde.org/stable/release-service/23.04.1/src/libksane-23.04.1.tar.xz
 Source0  : https://download.kde.org/stable/release-service/23.04.1/src/libksane-23.04.1.tar.xz
 Source1  : https://download.kde.org/stable/release-service/23.04.1/src/libksane-23.04.1.tar.xz.sig
@@ -89,7 +89,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1684775949
+export SOURCE_DATE_EPOCH=1685642240
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -122,7 +122,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1684775949
+export SOURCE_DATE_EPOCH=1685642240
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libksane
 cp %{_builddir}/libksane-%{version}/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/libksane/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0 || :
@@ -150,7 +150,6 @@ popd
 
 %files dev
 %defattr(-,root,root,-)
-/V3/usr/lib64/libKF5Sane.so
 /usr/include/KF5/KSane/KSaneWidget
 /usr/include/KF5/KSane/ksane_export.h
 /usr/include/KF5/KSane/ksanewidget.h
@@ -164,7 +163,6 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /V3/usr/lib64/libKF5Sane.so.23.04.1
-/V3/usr/lib64/libKF5Sane.so.5
 /usr/lib64/libKF5Sane.so.23.04.1
 /usr/lib64/libKF5Sane.so.5
 
