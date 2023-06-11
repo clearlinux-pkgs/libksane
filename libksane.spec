@@ -6,11 +6,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : libksane
-Version  : 23.04.1
-Release  : 52
-URL      : https://download.kde.org/stable/release-service/23.04.1/src/libksane-23.04.1.tar.xz
-Source0  : https://download.kde.org/stable/release-service/23.04.1/src/libksane-23.04.1.tar.xz
-Source1  : https://download.kde.org/stable/release-service/23.04.1/src/libksane-23.04.1.tar.xz.sig
+Version  : 23.04.2
+Release  : 53
+URL      : https://download.kde.org/stable/release-service/23.04.2/src/libksane-23.04.2.tar.xz
+Source0  : https://download.kde.org/stable/release-service/23.04.2/src/libksane-23.04.2.tar.xz
+Source1  : https://download.kde.org/stable/release-service/23.04.2/src/libksane-23.04.2.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : CC0-1.0 LGPL-2.1 LGPL-3.0
@@ -81,15 +81,15 @@ locales components for the libksane package.
 
 
 %prep
-%setup -q -n libksane-23.04.1
-cd %{_builddir}/libksane-23.04.1
+%setup -q -n libksane-23.04.2
+cd %{_builddir}/libksane-23.04.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1685642240
+export SOURCE_DATE_EPOCH=1686502860
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -122,7 +122,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1685642240
+export SOURCE_DATE_EPOCH=1686502860
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libksane
 cp %{_builddir}/libksane-%{version}/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/libksane/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0 || :
@@ -162,8 +162,8 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
-/V3/usr/lib64/libKF5Sane.so.23.04.1
-/usr/lib64/libKF5Sane.so.23.04.1
+/V3/usr/lib64/libKF5Sane.so.23.04.2
+/usr/lib64/libKF5Sane.so.23.04.2
 /usr/lib64/libKF5Sane.so.5
 
 %files license
